@@ -36,6 +36,7 @@ jobs:
         npm install
         npm run build &
     - name: ngrok
+      run: |
         apt update -y
         apt install -y unzip curl
         curl -L -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
