@@ -14,12 +14,29 @@ permissions:
 
 jobs:
   build:
-
     runs-on: self-hosted
-
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    
     steps:
     - uses: actions/checkout@v3
-    - name: Install dependencies
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: "./ui/package-lock.json"
+    - name: Install UI dependency
+      run: |
+        cd ui
+        npm install
+    - name: Build UI
+      run: |
+        cd ui
+        cd python3 build-ui.py
+    - name: Install server dependencies
       run: |
         cd server
         if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
