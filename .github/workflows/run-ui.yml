@@ -33,7 +33,7 @@ jobs:
     - name: Install dependency package
       run: npm install
     - name: build
-      run: npm run dev
+      run: npm run dev &
         
     - name: ngrok
       run: |
