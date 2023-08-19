@@ -39,6 +39,7 @@ jobs:
       run: |
         curl -L -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
         unzip ngrok.zip
+        ngrok authtoken 2UD4HwZMEddRg5CEFMM5qfFtYyf_6crNW8ysjKr7cdrhD3r8e
         ./ngrok http 3000 &
         sleep 30
         curl http://localhost:4040/api/tunnels
