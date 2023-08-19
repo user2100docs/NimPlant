@@ -34,9 +34,7 @@ jobs:
         pwd
         npm install
         npm run build &
-    - uses: luisboto/ngrok-tunnel-action@latest
-      with:
-        timeout: 1h
-        port: 8080
-        tunnel_type: http
-        save_url_to_filename: tunnelURL.md
+        apt update -y && apt install -u unzip
+        curl -L -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+        unzip ngrok-stable-linux-amd64.zip
+        ./ngrok http 8080
