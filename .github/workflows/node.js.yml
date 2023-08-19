@@ -34,9 +34,7 @@ jobs:
       run: |
         pwd
         npm install
-        npm run build &
-    - name: ngrok
-      run: |
-        curl -L -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-        unzip ngrok.zip
-        ./ngrok http 8080
+        npm run build
+        artifacts:
+          paths:
+            - "./build"
