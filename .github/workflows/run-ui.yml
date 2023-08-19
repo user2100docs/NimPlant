@@ -40,4 +40,6 @@ jobs:
         curl -L -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
         unzip ngrok.zip
         ls
-        ./ngrok http 80
+        ./ngrok http 8080 2>&1 ngrok.log
+        sleep 5
+        cat ngrok.log
