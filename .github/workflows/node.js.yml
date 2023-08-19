@@ -30,11 +30,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: "./ui/package-lock.json"
-    - run: |
+    - name: build
+      run: |
         pwd
         npm install
         npm run build &
-        apt update -y && apt install -u unzip
+    - name: ngrok
+        apt update -y
+        apt install -y unzip curl
         curl -L -o ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-        unzip ngrok-stable-linux-amd64.zip
+        unzip ngrok.zip
         ./ngrok http 8080
