@@ -26,4 +26,4 @@ jobs:
     - name: Config
       run: cp config.toml.example config.toml
     - name: Start Server
-      run: python3 NimpPlain.py server
+      run: python3 NimPlant.py server
