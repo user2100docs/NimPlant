@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: [self-hosted, ubuntu-latest]
     strategy:
       matrix:
         node-version: [18.x]
@@ -35,7 +35,7 @@ jobs:
     - name: Build UI
       run: |
         cd ui
-        cd python3 build-ui.py
+        python3 build-ui.py
     - name: Install server dependencies
       run: |
         cd server
