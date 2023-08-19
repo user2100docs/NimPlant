@@ -32,8 +32,9 @@ jobs:
     - name: build
       run: |
         pwd
-        npm install
-        npm run build
-        artifacts:
-          paths:
-            - "./build"
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: ./
+
