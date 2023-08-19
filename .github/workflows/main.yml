@@ -9,11 +9,6 @@ on:
 
 jobs:
   build-nimplant:
-    strategy:
-      max-parallel: 1
-      fail-fast: false
-      matrix:
-        os: [windows-latest, ubuntu-latest]
     runs-on: self-hosted
     steps:
     - name: Checkout code into workspace directory
