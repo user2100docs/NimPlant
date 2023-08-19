@@ -27,8 +27,8 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        working-directory: ./ui
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: "./ui/package-lock.json"
     - run: npm install
     - run: npm run dev
