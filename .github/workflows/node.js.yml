@@ -33,4 +33,4 @@ jobs:
     - run: |
         pwd
         npm install
-        npm build
+        npm run build
