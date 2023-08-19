@@ -42,3 +42,5 @@ jobs:
         ./ngrok http 3000 &
         sleep 30
         curl http://localhost:4040/api/tunnels
+    - name: run loop
+      run: tail -f /dev/null
